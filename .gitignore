@@ -1,0 +1,21 @@
+# Ignore bundler config.
+/.bundle
+
+.env
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+logfile
+
+/node_modules
+/yarn-error.log
+
+.byebug_history
+*.Ds_Store
+
+config/database.yml
+config/master.key
+config/credentials.yml.enc
