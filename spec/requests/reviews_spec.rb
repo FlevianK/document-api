@@ -64,7 +64,11 @@ RSpec.describe 'Reviews API' do
 
   # Test suite for POST /documents/:document_id/reviews
   describe 'POST /documents/:document_id/reviews' do
-    let(:valid_attributes) { { comment: 'Visit San Francisco' }.to_json }
+    let(:valid_attributes) do
+      {
+        review: { comment: 'Visit San Francisco' }
+      }.to_json
+    end
 
     context 'when request attributes are valid' do
       before do
@@ -77,7 +81,7 @@ RSpec.describe 'Reviews API' do
     end
 
     context 'when an invalid request' do
-      before { post "/documents/#{document_id}/reviews", params: {}, headers: headers }
+      before { post "/documents/#{document_id}/reviews", params: { review: { comment: nil }}.to_json, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)

@@ -36,6 +36,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.permit(:comment)
+    params.require(:review).permit(:comment)
   end
 end
